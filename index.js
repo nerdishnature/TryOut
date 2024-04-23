@@ -56,3 +56,4 @@ function generateTodoInfo(element){
 }
 
 window.initializeData = initializeData;
+window.createTodo = createTodo;
