@@ -4,24 +4,24 @@ import { TodoFactory } from "./todoFactory.js";
 const todosIdentifier = 'todos';
 let todos = [];
 let storeGateway;
+let todoFactory;
 
 function initializeData(){
     storeGateway = new StoreGateway();
+    todoFactory = new TodoFactory();
     const storedValue = storeGateway.getStoreData(todosIdentifier);
     if(storedValue !== undefined){
-        const todoFactory = new TodoFactory();
         const restoredTodos = todoFactory.initializeTodosFromStore(storedValue);
         todos = restoredTodos;
     }
 }
 
 function submitForm(form) {
-    let whoValue = form.who.value;
-    let whatValue = form.what.value;
-    let prioValue = form.priority.value;
+    const whoValue = form.who.value;
+    const whatValue = form.what.value;
+    const prioValue = form.priority.value;
 
-    const todoFactory = new TodoFactory();
-    const newTodo = todoFactory.addNewTodo(whoValue, whatValue, prioValue);
+    const newTodo = todoFactory.createNewTodo(whoValue, whatValue, prioValue);
 
     todos.push(newTodo);
     storeGateway.setStoredValue(todosIdentifier, JSON.stringify(todos));
