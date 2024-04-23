@@ -6,7 +6,7 @@ let todos = [];
 let idToDelete;
 let storeGateway;
 
-function initialize(){
+function initializeData(){
     storeGateway = new StoreGateway();
     const storedValue = storeGateway.getStoreData(todosIdentifier);
     if(storedValue !== undefined){
@@ -45,5 +45,5 @@ function deleteTodo() {
     window.location.href = "index.html";
 }
 
-window.initialize = initialize;
+window.initializeData = initializeData;
 window.deleteTodo = deleteTodo;
