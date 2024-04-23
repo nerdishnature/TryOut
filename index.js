@@ -26,7 +26,7 @@ function updateView(){
         todoCollectionRef.innerHTML = wrappedInfos;
     }
     else {
-        todoCollectionRef.innerHTML = '<tr><td colspan="4">Keine Aufgaben zum Erledigen</td></tr>';
+        todoCollectionRef.innerHTML = '<tr><td colspan="5">Keine Aufgaben zum Erledigen</td></tr>';
     }
 }
 
@@ -38,6 +38,7 @@ function createTodo(){
     todos.push(newTodo);
     
     storeGateway.setStoredValue(todosIdentifier, JSON.stringify(todos));
+    updateView();
 }
 
 function generateTodoInfo(element){
@@ -50,9 +51,20 @@ function generateTodoInfo(element){
     singleLine += element.what;
     singleLine += '</td><td>';
     singleLine += getPriorityRepresentation(element.priority);
-    singleLine += '</td>';
+    singleLine += '</td><td>';
+    singleLine += '<a href="./deleteTodo.html?id=' + element.id + '">-</a>';
+    singleLine += '</td>'
     singleLine += '</tr>';
     return singleLine;
+}
+
+function getPriorityRepresentation(priority) {
+    switch(priority) {
+        case "1": return 'HOCH';
+        case "2": return 'MITTEL';
+        case "3": return 'NIEDRIG';
+        default: return '';
+    }
 }
 
 window.initializeData = initializeData;
