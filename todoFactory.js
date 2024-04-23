@@ -8,7 +8,7 @@ export class TodoFactory {
         let restoredTodos = [];
 
         const storedTodos = JSON.parse(storedValue);
-        if (storedTodos !== undefined) {
+        if (storedTodos !== undefined && storedTodos !== null && storedTodos !== '') {
             for (let i = 0; i < storedTodos.length; i++) {
                 const storedTodo = storedTodos[i];
                 const todoEntry = new Todo(storedTodo.id, storedTodo.who, storedTodo.what, storedTodo.priority);
