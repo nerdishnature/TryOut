@@ -2,3 +2,22 @@
     margin: 0;
     padding: 0;
 }
+
+body {
+    min-height: 100vh;
+    margin: 0;
+}
+
+
+header {
+    min-height: 50px;
+    background-color: aquamarine;
+}
+
+footer {
+    min-height: 50px;
+}
+
+main {
+    flex: 1;
+}

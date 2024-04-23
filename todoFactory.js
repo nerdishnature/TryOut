@@ -22,7 +22,7 @@ export class TodoFactory {
     createNewTodo(who, what, priority) {
         const indexProvider = new IndexProvider();
         const todoId = indexProvider.getNextId();
-        const creationTime = Date.now;
+        const creationTime = Date.now();
 
         const todo = new Todo(todoId, who, what, priority, creationTime);
         return todo;
