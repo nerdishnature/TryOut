@@ -1,9 +1,11 @@
+import { StoreGateway } from "./storeGateway.js";
+
 export class IndexProvider {
     #todoIdIndentifier = 'todoId';
     #storeGateway;
 
-    constructor(storeGateway){
-        this.#storeGateway = storeGateway;
+    constructor(){
+        this.#storeGateway = new StoreGateway();
     }
 
     getNextId() {

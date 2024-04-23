@@ -1,19 +1,11 @@
-import { IndexProvider } from "./indexProvider.js";
 import { StoreGateway } from "./storeGateway.js";
 import { TodoFactory } from "./todoFactory.js";
 
 const todosIdentifier = 'todos';
-
 let todos = [];
-let storeGateway;
-let todoFactory;
-let indexProvider;
-
 
 function initializeData(){
-    storeGateway = new StoreGateway();
-    indexProvider = new IndexProvider(storeGateway);
-    todoFactory = new TodoFactory(indexProvider);
+    const storeGateway = new StoreGateway();
     const storedValue = storeGateway.getStoreData(todosIdentifier);
     if(storedValue !== undefined){
         const todoFactory = new TodoFactory();
