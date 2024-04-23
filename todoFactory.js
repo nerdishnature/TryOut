@@ -11,7 +11,7 @@ export class TodoFactory {
         if (storedTodos !== undefined && storedTodos !== null && storedTodos !== '') {
             for (let i = 0; i < storedTodos.length; i++) {
                 const storedTodo = storedTodos[i];
-                const todoEntry = new Todo(storedTodo.id, storedTodo.who, storedTodo.what, storedTodo.priority);
+                const todoEntry = new Todo(storedTodo.id, storedTodo.who, storedTodo.what, storedTodo.priority, storedTodo.creationTime);
                 restoredTodos.push(todoEntry);
             }
         }
