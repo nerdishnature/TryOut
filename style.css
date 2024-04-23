@@ -33,8 +33,12 @@ main {
     margin-right: auto;
 }
 
-main a:hover {
-    scale: 1.5;
+.addTodo {
+    transition: transform .2s; /* Animation */
+}
+
+.addTodo:hover {
+    transform: scale(2);
 }
 
 footer {
