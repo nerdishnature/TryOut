@@ -20,6 +20,7 @@ function initializeData(){
     if(searchParams.has('id') === false) {
       alert('Keine Todo-ID angegeben.');
       window.location.href = "index.html";
+      return;
     }
 
     const todoId = searchParams.get('id');
@@ -27,6 +28,7 @@ function initializeData(){
     if(Number.isNaN(numericTodoId)) {
       alert('Keine Zahl übergeben.');
       window.location.href = "index.html";
+      return;
     }
 
     const resolvedTodo = todos.find(todo => todo.id === numericTodoId);
@@ -34,6 +36,7 @@ function initializeData(){
     {
       alert('Todo mit ID existiert nicht!');
       window.location.href = "index.html";
+      return;
     }
 
     idToDelete = resolvedTodo.id;
