@@ -19,11 +19,12 @@ export class TodoFactory {
         return restoredTodos;
     }
 
-    addNewTodo(who, what, priority) {
+    createNewTodo(who, what, priority) {
         const indexProvider = new IndexProvider();
         const todoId = indexProvider.getNextId();
+        const creationTime = Date.now;
 
-        const todo = new Todo(todoId, who, what, priority);
+        const todo = new Todo(todoId, who, what, priority, creationTime);
         return todo;
     }
 }

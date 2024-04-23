@@ -26,7 +26,7 @@ function updateView(){
         todoCollectionRef.innerHTML = wrappedInfos;
     }
     else {
-        todoCollectionRef.innerHTML = '<tr><td colspan="5">Keine Aufgaben zum Erledigen</td></tr>';
+        todoCollectionRef.innerHTML = '<tr><td colspan="6">Keine Aufgaben zum Erledigen</td></tr>';
     }
 }
 
@@ -40,6 +40,8 @@ function generateTodoInfo(element){
     singleLine += element.what;
     singleLine += '</td><td>';
     singleLine += getPriorityRepresentation(element.priority);
+    singleLine += '</td><td>';
+    singleLine += getDateRepresentation(element.creationTime);
     singleLine += '</td><td>';
     singleLine += '<a href="./deleteTodo.html?id=' + element.id + '">-</a>';
     singleLine += '</td>'
@@ -56,5 +58,14 @@ function getPriorityRepresentation(priority) {
     }
 }
 
+function getDateRepresentation(date) {
+    const dateNumeric = Number(date);
+    if(Number.isNaN(dateNumeric) === true) {
+        return '-';
+    }
+
+    const resolvedDate = new Date(dateNumeric);
+    return resolvedDate.toLocaleDateString() + " " + resolvedDate.toLocaleTimeString();
+}
+
 window.initializeData = initializeData;
-window.createTodo = createTodo;
