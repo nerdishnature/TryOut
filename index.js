@@ -1,4 +1,3 @@
-import { Todo } from "./todo.js";
 import { StoreGateway } from "./storeGateway.js";
 import { TodoFactory } from "./todoFactory.js";
 

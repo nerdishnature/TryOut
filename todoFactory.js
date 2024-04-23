@@ -1,5 +1,5 @@
-import { IndexProvider } from "./indexProvider";
-import { Todo } from "./todo";
+import { IndexProvider } from "./indexProvider.js";
+import { Todo } from "./todo.js";
 
 export class TodoFactory {
     constructor() { }

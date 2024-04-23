@@ -1,4 +1,4 @@
-import { StoreGateway } from "./storeGateway";
+import { StoreGateway } from "./storeGateway,js";
 
 export class IndexProvider {
     #todoIdIndentifier = 'todoId';
