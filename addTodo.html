@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meine Todos</title>
+    <script type="module" src="./deleteTodo.js"></script>
+</head>
+
+<body onload="initializeData()">
+    <header>
+        <p>Meine Todo Liste</p>
+    </header>
+
+    <main>
+        <h1>Eine neue Aufgabe anlegen</h1>
+        <form>
+            <label for="who">Wer</label>
+            <input type="text" name="who" id="who" />
+            <label for="what">Was</label>
+            <input type="text" name="what" id="what" />
+            <label for="priority">Dringlickeit</label>
+            <select id="priority" name="priority">
+                <option value="1">Hoch</option>
+                <option value="2">Mittel</option>
+                <option value="3">Niedrig</option>
+            </select>
+            <input type="button" value="Anlegen" onclick="submitForm(this.form)" />
+        </form>
+
+
+        <a href="./index.html">Zurück zur Aufgabenübersicht</a>
+    </main>
+
+    <footer>
+        <a href="https://www.fsg-niesky.de/" target="_blank">Greetings</a>
+    </footer>
+</body>
+
+</html>

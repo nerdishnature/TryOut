@@ -30,17 +30,6 @@ function updateView(){
     }
 }
 
-function createTodo(){
-    const todoFactory = new TodoFactory();
-    const storeGateway = new StoreGateway();
-
-    const newTodo = todoFactory.addNewTodo('Tom', 'Hausaufgaben', 1);
-    todos.push(newTodo);
-    
-    storeGateway.setStoredValue(todosIdentifier, JSON.stringify(todos));
-    updateView();
-}
-
 function generateTodoInfo(element){
     let singleLine = '<tr>';
     singleLine += '<td>';
