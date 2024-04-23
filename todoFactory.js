@@ -1,8 +1,11 @@
-import { IndexProvider } from "./indexProvider.js";
 import { Todo } from "./todo.js";
 
 export class TodoFactory {
-    constructor() { }
+    #indexProvider;
+
+    constructor(indexProvider) { 
+        this.#indexProvider = indexProvider;
+    }
 
     initializeTodosFromStore(storedValue) {
         const storedTodos = JSON.parse(storedValue);
@@ -17,8 +20,7 @@ export class TodoFactory {
     }
 
     addNewTodo(who, what, priority){
-        const indexProvider = new IndexProvider();
-        const todoId = indexProvider.getNextId();
+        const todoId = this.#indexProvider.getNextId();
 
         const todo = new Todo(todoId, who, what, priority);
         return todo;
