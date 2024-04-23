@@ -20,6 +20,6 @@ export class IndexProvider {
     }
 
     #updateStoredIndex(number) {
-        this.#storeGateway.setStoredValue(this.#todoIdIndentifier, number++);
+        this.#storeGateway.setStoredValue(this.#todoIdIndentifier, ++number);
     }
 }
