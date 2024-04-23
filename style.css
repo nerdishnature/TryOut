@@ -34,11 +34,11 @@ main {
 }
 
 .addTodo {
-    transition: transform .2s; /* Animation */
+    transition: transform .7s ease-in-out;
 }
 
 .addTodo:hover {
-    transform: scale(2);
+    transform: rotate(360deg);
 }
 
 footer {
