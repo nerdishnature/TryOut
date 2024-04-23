@@ -1,3 +1,4 @@
+import { IndexProvider } from "./indexProvider";
 import { Todo } from "./todo";
 
 export class TodoFactory {
@@ -13,5 +14,13 @@ export class TodoFactory {
         }
 
         return restoredTodos;
-    }    
+    }
+
+    addNewTodo(who, what, priority){
+        const indexProvider = new IndexProvider();
+        const todoId = indexProvider.getNextId();
+
+        const todo = new Todo(todoId, who, what, priority);
+        return todo;
+    }
 }

@@ -3,10 +3,11 @@ import { StoreGateway } from "./storeGateway.js";
 import { TodoFactory } from "./todoFactory.js";
 
 let todos = [];
+const todosIdentifier = 'todos';
 
 function initializeData(){
     const storeGateway = new StoreGateway();
-    const storedValue = storeGateway.getStoreData('todos');
+    const storedValue = storeGateway.getStoreData(todosIdentifier);
     if(storedValue !== undefined){
         const todoFactory = new TodoFactory();
         const restoredTodos = todoFactory.initializeTodosFromStore(storedValue);
@@ -28,6 +29,16 @@ function updateView(){
     else {
         todoCollectionRef.innerHTML = '<tr><td colspan="4">Keine Aufgaben zum Erledigen</td></tr>';
     }
+}
+
+function createTodo(){
+    const todoFactory = new TodoFactory();
+    const storeGateway = new StoreGateway();
+
+    const newTodo = todoFactory.addNewTodo('Tom', 'Hausaufgaben', 1);
+    todos.push(newTodo);
+    
+    storeGateway.setStoredValue(todosIdentifier, JSON.stringify(todos));
 }
 
 function generateTodoInfo(element){
